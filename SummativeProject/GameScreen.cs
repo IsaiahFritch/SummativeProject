@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SummativeProject
 {
-    public partial class Form1 : Form
+    public partial class GameScreen : UserControl
     {
         ////Lists
         //player parts
@@ -96,15 +96,12 @@ namespace SummativeProject
         Image hasBonusHeartImage = Properties.Resources.HasBonusHeart;
         Image deadHeartImage = Properties.Resources.DeadHeart;
 
-
-
-
-        public Form1()
+        public GameScreen()
         {
             InitializeComponent();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -157,7 +154,7 @@ namespace SummativeProject
             }
         }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -1019,86 +1016,68 @@ namespace SummativeProject
             Refresh();
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            //background 
+            e.Graphics.DrawImage(backgroundImage, 0, 0, 1400, 900);
+
+            //enemy projectiles
+            for (int i = 0; i < enemyProjectiles.Count(); i++)
+            {
+                if (enemyProjectilesWait[i] <= 0)
+                {
+                    e.Graphics.FillEllipse(darkredBrush, enemyProjectiles[i]);
+                }
+                else
+                {
+                    e.Graphics.FillEllipse(inactiveBrush, enemyProjectiles[i]);
+                }
+            }
+
+            //player projectiles -- flamethrower: burn extra calories!
+            for (int i = 0; i < playerProjectiles.Count(); i++)
+            {
+                if (playerProjectilesLifespan[i] < 20)
+                {
+                    //e.Graphics.FillRectangle(darkredBrush, playerProjectiles[i]);
+                    e.Graphics.DrawImage(redAshFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+                else if (playerProjectilesLifespan[i] < 30)
+                {
+                    //e.Graphics.FillRectangle(redBrush, playerProjectiles[i]);
+                    e.Graphics.DrawImage(redFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+                else if (playerProjectilesLifespan[i] < 40)
+                {
+                    //e.Graphics.FillRectangle(orangeredBrush, playerProjectiles[i]);
+                    e.Graphics.DrawImage(orangeRedFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+                else if (playerProjectilesLifespan[i] < 45)
+                {
+                    //e.Graphics.FillRectangle(orangeBrush, playerProjectiles[i]);
+                    e.Graphics.DrawImage(orangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+                else if (playerProjectilesLifespan[i] < 62)
+                {
+                    //e.Graphics.FillRectangle(goldBrush, playerProjectiles[i]);
+                    e.Graphics.DrawImage(yellowOrangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+                else if (playerProjectilesLifespan[i] < 81)
+                {
+                    e.Graphics.DrawImage(yellowFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                }
+            }
+
+            //cooldownTimerLabel.Text += $"\n{playerHealth}";
+
+            //player
+            e.Graphics.FillEllipse(blueBrush, player);
+
+            //Uncle Ron
+            e.Graphics.FillRectangle(blueBrush, Ronald);
 
         }
-        //{
-        //    //background 
-        //    e.Graphics.DrawImage(backgroundImage, 0, 0, 1400, 900);
 
-        //    //enemy projectiles
-        //    for (int i = 0; i < enemyProjectiles.Count(); i++)
-        //    {
-        //        if (enemyProjectilesWait[i] <= 0)
-        //        {
-        //            e.Graphics.FillEllipse(darkredBrush, enemyProjectiles[i]);
-        //        }
-        //        else
-        //        {
-        //            e.Graphics.FillEllipse(inactiveBrush, enemyProjectiles[i]);
-        //        }
-        //    }
-
-        //    //player projectiles -- flamethrower: burn extra calories!
-        //    for (int i = 0; i < playerProjectiles.Count(); i++)
-        //    {
-        //        if (playerProjectilesLifespan[i] < 20)
-        //        {
-        //            //e.Graphics.FillRectangle(darkredBrush, playerProjectiles[i]);
-        //            e.Graphics.DrawImage(redAshFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //        else if (playerProjectilesLifespan[i] < 30)
-        //        {
-        //            //e.Graphics.FillRectangle(redBrush, playerProjectiles[i]);
-        //            e.Graphics.DrawImage(redFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //        else if (playerProjectilesLifespan[i] < 40)
-        //        {
-        //            //e.Graphics.FillRectangle(orangeredBrush, playerProjectiles[i]);
-        //            e.Graphics.DrawImage(orangeRedFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //        else if (playerProjectilesLifespan[i] < 45)
-        //        {
-        //            //e.Graphics.FillRectangle(orangeBrush, playerProjectiles[i]);
-        //            e.Graphics.DrawImage(orangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //        else if (playerProjectilesLifespan[i] < 62)
-        //        {
-        //            //e.Graphics.FillRectangle(goldBrush, playerProjectiles[i]);
-        //            e.Graphics.DrawImage(yellowOrangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //        else if (playerProjectilesLifespan[i] < 81)
-        //        {
-        //            e.Graphics.DrawImage(yellowFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
-        //        }
-        //    }
-
-
-        //    //cover the projectiles
-        //    e.Graphics.DrawImage(foregroundImage, 0, 0, 1400, 900);
-
-
-        //    //hearts  too high quality, must be lowered
-        //    e.Graphics.DrawImage(hasHeartImage, topHeart);
-        //    e.Graphics.DrawImage(hasHeartImage, middleHeart);
-        //    e.Graphics.DrawImage(hasBonusHeartImage, bottomHeart);
-
-
-        //    //cooldown label
-        //    cooldownTimerLabel.Text = $"{dodgeCooldown}";
-        //    cooldownTimerLabel.Text += $"\n{ronaldHealth}";
-        //    cooldownTimerLabel.Text += $"\n{playerHealth}";
-
-        //    //player
-        //    e.Graphics.FillEllipse(blueBrush, player);
-
-        //    //Uncle Ron
-        //    e.Graphics.FillRectangle(blueBrush, Ronald);
-        //}
-
-
-        ////Ronald's attack patterns
         public void SetOneCaseOne()
         {
             //run attack
@@ -1306,12 +1285,12 @@ namespace SummativeProject
                 enemyProjectilesSpeedsY.Add(-3);
                 enemyProjectilesWait.Add(0);
 
-                enemyProjectiles.Add(new Rectangle(818 - 10, ((-165+1000) / difficultyMultiplier) - 10, 20, 20));
+                enemyProjectiles.Add(new Rectangle(818 - 10, ((-165 + 1000) / difficultyMultiplier) - 10, 20, 20));
                 enemyProjectilesSpeedsX.Add(0);
                 enemyProjectilesSpeedsY.Add(-3);
                 enemyProjectilesWait.Add(0);
 
-                enemyProjectiles.Add(new Rectangle(935 - 10, -5 +1000, 20, 20));
+                enemyProjectiles.Add(new Rectangle(935 - 10, -5 + 1000, 20, 20));
                 enemyProjectilesSpeedsX.Add(0);
                 enemyProjectilesSpeedsY.Add(-3);
                 enemyProjectilesWait.Add(0);
@@ -1319,22 +1298,22 @@ namespace SummativeProject
                 //difficulty settings
                 if (difficultyMultiplier >= 2)
                 {
-                    enemyProjectiles.Add(new Rectangle(524 - 7, -5 +1000, 14, 14));
+                    enemyProjectiles.Add(new Rectangle(524 - 7, -5 + 1000, 14, 14));
                     enemyProjectilesSpeedsX.Add(0);
                     enemyProjectilesSpeedsY.Add(-4);
                     enemyProjectilesWait.Add(0);
 
-                    enemyProjectiles.Add(new Rectangle(641 - 7, -5+1000, 14, 14));
+                    enemyProjectiles.Add(new Rectangle(641 - 7, -5 + 1000, 14, 14));
                     enemyProjectilesSpeedsX.Add(0);
                     enemyProjectilesSpeedsY.Add(-4);
                     enemyProjectilesWait.Add(0);
 
-                    enemyProjectiles.Add(new Rectangle(759 - 7, -5+1000, 14, 14));
+                    enemyProjectiles.Add(new Rectangle(759 - 7, -5 + 1000, 14, 14));
                     enemyProjectilesSpeedsX.Add(0);
                     enemyProjectilesSpeedsY.Add(-4);
                     enemyProjectilesWait.Add(0);
 
-                    enemyProjectiles.Add(new Rectangle(877 - 7, -5+1000, 14, 14));
+                    enemyProjectiles.Add(new Rectangle(877 - 7, -5 + 1000, 14, 14));
                     enemyProjectilesSpeedsX.Add(0);
                     enemyProjectilesSpeedsY.Add(-4);
                     enemyProjectilesWait.Add(0);
@@ -1499,14 +1478,5 @@ namespace SummativeProject
             enemyProjectilesSpeedsY.Add(Convert.ToInt32(yMovement));
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            GameScreen gs = new GameScreen();
-
-            gs.Location = new Point((this.ClientSize.Width - gs.Width) / 2, (this.ClientSize.Height - gs.Height) / 2);
-            this.Controls.Add(gs);
-
-            gs.Focus();
-        }
     }
 }
