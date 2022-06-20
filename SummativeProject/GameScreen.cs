@@ -27,11 +27,6 @@ namespace SummativeProject
         List<int> enemyProjectilesSpeedsY = new List<int>();
         List<int> enemyProjectilesWait = new List<int>();
 
-        ////Lives
-        Rectangle topHeart = new Rectangle(1134, 155, 225, 147);
-        Rectangle middleHeart = new Rectangle(1134, 368, 225, 147);
-        Rectangle bottomHeart = new Rectangle(1134, 580, 225, 147);
-
         ////Variables
         int counter = 0;
         int ronaldAttackCounter = 250;
@@ -52,6 +47,7 @@ namespace SummativeProject
         int individualAttackSetTwo = 0;
         int attackSetTwoSwitch = 0;
         bool ronaldShouldBeMoving = true;
+        int playerMaxHealth = 2;
 
         Random randGen = new Random();
 
@@ -92,13 +88,73 @@ namespace SummativeProject
         Image redFireImage = Properties.Resources.RedFire;
         Image redAshFireImage = Properties.Resources.RedAshFire;
 
-        Image hasHeartImage = Properties.Resources.HasHeart;
-        Image hasBonusHeartImage = Properties.Resources.HasBonusHeart;
-        Image deadHeartImage = Properties.Resources.DeadHeart;
-
         public GameScreen()
         {
             InitializeComponent();
+            GameStartUp();
+        }
+
+        public void GameStartUp()
+        {
+            //collecct difficulty information from other screen
+
+            //reset the game elements
+            player.X = 700 - 4;
+            player.Y = 700 - 4;
+
+            playerProjectiles.Clear();
+            playerProjectilesSpeedsX.Clear();
+            playerProjectilesSpeedsY.Clear();
+            playerProjectilesLifespan.Clear();
+            playerProjectileSize.Clear();
+
+            Ronald.X = 700 - 40;
+            Ronald.Y = 100 + 40;
+            enemyProjectiles.Clear();
+            enemyProjectilesSpeedsX.Clear();
+            enemyProjectilesSpeedsY.Clear();
+            enemyProjectilesWait.Clear();
+
+            counter = 0;
+            ronaldAttackCounter = 250;
+
+            playerSpeed = 5;
+            dodgeCooldown = 0;
+            immunityCooldown = 10;
+            playerHealth = 3;
+            playerProjectileSizeTemp = 0;
+            ronaldHealth = 2000;
+            ronaldPosition = 0;
+            ronaldMovePattern = "stride";
+            ronaldMovePatternSwitch = 1;
+            clockwise = true;
+            previousRonaldPosition = 0;
+            attackSetOneSwitch = 0;
+            individualAttackSetOne = 0;
+            individualAttackSetTwo = 0;
+            attackSetTwoSwitch = 0;
+            ronaldShouldBeMoving = true;
+            playerMaxHealth = 2 * difficultyMultiplier;
+
+            if (playerMaxHealth == 6)
+            {
+                Form1.TopHeartSetting = 1;
+                Form1.MiddleHeartSetting = 1;
+                Form1.BottomHeartSetting = 1;
+            }
+            if (playerMaxHealth == 4)
+            {
+                Form1.TopHeartSetting = 0;
+                Form1.MiddleHeartSetting = 1;
+                Form1.BottomHeartSetting = 1;
+            }
+            if (playerMaxHealth == 2)
+            {
+                Form1.TopHeartSetting = 0;
+                Form1.MiddleHeartSetting = 0;
+                Form1.BottomHeartSetting = 1;
+            }
+            Form1.HeartVisuals();
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -978,7 +1034,6 @@ namespace SummativeProject
                 }
             }
 
-
             ////Scoring, Checking Win Conditions, Other Miscellaneous Tasks
             //damage Ronald
             for (int i = 0; i < playerProjectiles.Count(); i++)
@@ -1012,7 +1067,7 @@ namespace SummativeProject
                 playerHealth -= 1;
                 immunityCooldown += 100;
             }
-
+            
             Refresh();
         }
 
@@ -1075,7 +1130,6 @@ namespace SummativeProject
 
             //Uncle Ron
             e.Graphics.FillRectangle(blueBrush, Ronald);
-
         }
 
         public void SetOneCaseOne()

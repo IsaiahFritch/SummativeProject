@@ -33,7 +33,13 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.cooldownTimerLabel = new System.Windows.Forms.Label();
             this.foregroundPictureBox = new System.Windows.Forms.PictureBox();
+            this.topHeartBoxImage = new System.Windows.Forms.PictureBox();
+            this.middleHeartBoxImage = new System.Windows.Forms.PictureBox();
+            this.bottomHeartBoxImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topHeartBoxImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.middleHeartBoxImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomHeartBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,11 +75,47 @@
             this.foregroundPictureBox.TabIndex = 2;
             this.foregroundPictureBox.TabStop = false;
             // 
+            // topHeartBoxImage
+            // 
+            this.topHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
+            this.topHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
+            this.topHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.topHeartBoxImage.Location = new System.Drawing.Point(1116, 136);
+            this.topHeartBoxImage.Name = "topHeartBoxImage";
+            this.topHeartBoxImage.Size = new System.Drawing.Size(263, 177);
+            this.topHeartBoxImage.TabIndex = 3;
+            this.topHeartBoxImage.TabStop = false;
+            // 
+            // middleHeartBoxImage
+            // 
+            this.middleHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
+            this.middleHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
+            this.middleHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.middleHeartBoxImage.Location = new System.Drawing.Point(1116, 349);
+            this.middleHeartBoxImage.Name = "middleHeartBoxImage";
+            this.middleHeartBoxImage.Size = new System.Drawing.Size(263, 177);
+            this.middleHeartBoxImage.TabIndex = 4;
+            this.middleHeartBoxImage.TabStop = false;
+            // 
+            // bottomHeartBoxImage
+            // 
+            this.bottomHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
+            this.bottomHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
+            this.bottomHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bottomHeartBoxImage.Location = new System.Drawing.Point(1116, 561);
+            this.bottomHeartBoxImage.Name = "bottomHeartBoxImage";
+            this.bottomHeartBoxImage.Size = new System.Drawing.Size(263, 177);
+            this.bottomHeartBoxImage.TabIndex = 5;
+            this.bottomHeartBoxImage.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 900);
+            this.Controls.Add(this.bottomHeartBoxImage);
+            this.Controls.Add(this.middleHeartBoxImage);
+            this.Controls.Add(this.topHeartBoxImage);
             this.Controls.Add(this.foregroundPictureBox);
             this.Controls.Add(this.cooldownTimerLabel);
             this.Controls.Add(this.label1);
@@ -87,6 +129,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topHeartBoxImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.middleHeartBoxImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomHeartBoxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,6 +143,9 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label cooldownTimerLabel;
         private System.Windows.Forms.PictureBox foregroundPictureBox;
+        private System.Windows.Forms.PictureBox topHeartBoxImage;
+        private System.Windows.Forms.PictureBox middleHeartBoxImage;
+        private System.Windows.Forms.PictureBox bottomHeartBoxImage;
     }
 }
 
