@@ -128,5 +128,14 @@
   <ItemGroup>
     <None Include="Resources\HasHeart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartUpScreen.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinScreen.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoseScreen.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -113,6 +113,16 @@ namespace SummativeProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoseScreen {
+            get {
+                object obj = ResourceManager.GetObject("LoseScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MockupBackground {
             get {
                 object obj = ResourceManager.GetObject("MockupBackground", resourceCulture);
@@ -156,6 +166,26 @@ namespace SummativeProject.Properties {
         internal static System.Drawing.Bitmap RedFire {
             get {
                 object obj = ResourceManager.GetObject("RedFire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StartUpScreen {
+            get {
+                object obj = ResourceManager.GetObject("StartUpScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WinScreen {
+            get {
+                object obj = ResourceManager.GetObject("WinScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

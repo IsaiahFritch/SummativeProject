@@ -34,7 +34,6 @@ namespace SummativeProject
         int playerSpeed = 5;
         int dodgeCooldown = 0;
         int immunityCooldown = 10;
-        int playerHealth = 3;
         int playerProjectileSizeTemp = 0;
         int ronaldHealth = 2000;
         int ronaldPosition = 0;
@@ -47,7 +46,9 @@ namespace SummativeProject
         int individualAttackSetTwo = 0;
         int attackSetTwoSwitch = 0;
         bool ronaldShouldBeMoving = true;
-        int playerMaxHealth = 2;
+        public static int playerMaxHealth = 6;
+        public static int playerHealth = 3;
+
 
         Random randGen = new Random();
 
@@ -64,7 +65,7 @@ namespace SummativeProject
         bool spaceDown = false;
 
         ////Difficulty Settings
-        int difficultyMultiplier = 2;
+        public static int difficultyMultiplier = 1;
 
         ////Brushes, Sounds, Images
         SolidBrush blueBrush = new SolidBrush(Color.DodgerBlue);
@@ -134,7 +135,6 @@ namespace SummativeProject
             individualAttackSetTwo = 0;
             attackSetTwoSwitch = 0;
             ronaldShouldBeMoving = true;
-            playerMaxHealth = 2 * difficultyMultiplier;
 
             if (playerMaxHealth == 6)
             {
@@ -1048,6 +1048,11 @@ namespace SummativeProject
                     ronaldHealth -= 1;
                 }
             }
+            if (ronaldHealth <= 0)
+            {
+                Form1.gameState = "win";
+                gameTimer.Enabled = false;
+            }
 
             //damage player
             for (int i = 0; i < enemyProjectiles.Count(); i++)
@@ -1068,6 +1073,13 @@ namespace SummativeProject
                 immunityCooldown += 100;
             }
             
+            if (playerHealth == 0)
+            {
+                Form1.gameState = "lose";
+                //GameScreen.Close();
+                gameTimer.Enabled = false;
+            }
+
             Refresh();
         }
 
