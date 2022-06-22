@@ -13,8 +13,7 @@ namespace SummativeProject
     public partial class Form1 : Form
     {
         ////Shared Variables
-        //public static string gameState = "StartUpScreen";
-        public static string gameState = "lose";
+        public static string gameState = "StartUpScreen";
 
         public static int TopHeartSetting = 3;
         public static int MiddleHeartSetting = 3;
@@ -114,9 +113,9 @@ namespace SummativeProject
             InitializeComponent();
 
             ////Parenting
-            //topHeartBoxImage.Parent = foregroundPictureBox; change to be parented onto the right forground
-            //middleHeartBoxImage.Parent = foregroundPictureBox;
-            //bottomHeartBoxImage.Parent = foregroundPictureBox;
+            topHeartBoxImage.Parent = foregroundPictureBoxRight;
+            middleHeartBoxImage.Parent = foregroundPictureBoxRight;
+            bottomHeartBoxImage.Parent = foregroundPictureBoxRight;
         }
 
         public static void HeartVisuals()
@@ -228,17 +227,18 @@ namespace SummativeProject
             {
                 //set things up
                 GameScreen.playerMaxHealth = 6;
-                GameScreen.playerMaxHealth = 3;
+                GameScreen.playerHealth = 3;
 
                 topHeartBoxImage.Visible = true;
                 middleHeartBoxImage.Visible = true;
                 bottomHeartBoxImage.Visible = true;
                 foregroundPictureBox.Visible = true;
+                foregroundPictureBoxRight.Visible = true;
 
                 startUpScreenBox.Visible = false;
 
                 GameScreen.difficultyMultiplier = 1;
-
+                GameScreen.ronaldHealth = 500;
                 //run game
                 GameScreen gs = new GameScreen();
 
@@ -253,16 +253,18 @@ namespace SummativeProject
             {
                 //set things up
                 GameScreen.playerMaxHealth = 4;
-                GameScreen.playerMaxHealth = 2;
+                GameScreen.playerHealth = 2;
 
                 topHeartBoxImage.Visible = false;
                 middleHeartBoxImage.Visible = true;
                 bottomHeartBoxImage.Visible = true;
                 foregroundPictureBox.Visible = true;
+                foregroundPictureBoxRight.Visible = true;
 
                 startUpScreenBox.Visible = false;
 
                 GameScreen.difficultyMultiplier = 2;
+                GameScreen.ronaldHealth = 1000;
 
                 //run game
                 GameScreen gs = new GameScreen();
@@ -278,16 +280,19 @@ namespace SummativeProject
             {
                 //set things up
                 GameScreen.playerMaxHealth = 2;
-                GameScreen.playerMaxHealth = 1;
+                GameScreen.playerHealth = 1;
 
                 topHeartBoxImage.Visible = false;
                 middleHeartBoxImage.Visible = false;
                 bottomHeartBoxImage.Visible = true;
                 foregroundPictureBox.Visible = true;
+                foregroundPictureBoxRight.Visible = true;
+
 
                 startUpScreenBox.Visible = false;
 
                 GameScreen.difficultyMultiplier = 3;
+                GameScreen.ronaldHealth = 1500;
 
                 //run game
                 GameScreen gs = new GameScreen();
@@ -314,6 +319,7 @@ namespace SummativeProject
                 middleHeartBoxImage.Visible = false;
                 bottomHeartBoxImage.Visible = false;
                 foregroundPictureBox.Visible = false;
+                foregroundPictureBoxRight.Visible = false;
             }
             else if (gameState == "lose")
             {
@@ -325,6 +331,7 @@ namespace SummativeProject
                 middleHeartBoxImage.Visible = false;
                 bottomHeartBoxImage.Visible = false;
                 foregroundPictureBox.Visible = false;
+                foregroundPictureBoxRight.Visible = false;
 
                 gameTimer.Enabled = true;
             }
@@ -338,6 +345,7 @@ namespace SummativeProject
                 middleHeartBoxImage.Visible = false;
                 bottomHeartBoxImage.Visible = false;
                 foregroundPictureBox.Visible = false;
+                foregroundPictureBoxRight.Visible = false;
 
                 gameTimer.Enabled = true;
             }

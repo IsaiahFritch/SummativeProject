@@ -32,20 +32,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.cooldownTimerLabel = new System.Windows.Forms.Label();
-            this.startUpScreenBox = new System.Windows.Forms.PictureBox();
+            this.foregroundPictureBoxRight = new System.Windows.Forms.PictureBox();
             this.bottomHeartBoxImage = new System.Windows.Forms.PictureBox();
             this.middleHeartBoxImage = new System.Windows.Forms.PictureBox();
             this.topHeartBoxImage = new System.Windows.Forms.PictureBox();
             this.foregroundPictureBox = new System.Windows.Forms.PictureBox();
-            this.deathScreenBox = new System.Windows.Forms.PictureBox();
+            this.startUpScreenBox = new System.Windows.Forms.PictureBox();
             this.winScreenBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.startUpScreenBox)).BeginInit();
+            this.deathScreenBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBoxRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomHeartBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleHeartBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topHeartBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deathScreenBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startUpScreenBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.winScreenBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deathScreenBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,23 +72,23 @@
             this.cooldownTimerLabel.Size = new System.Drawing.Size(0, 13);
             this.cooldownTimerLabel.TabIndex = 1;
             // 
-            // startUpScreenBox
+            // foregroundPictureBoxRight
             // 
-            this.startUpScreenBox.BackColor = System.Drawing.Color.Transparent;
-            this.startUpScreenBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.startUpScreenBox.Image = global::SummativeProject.Properties.Resources.StartUpScreen;
-            this.startUpScreenBox.Location = new System.Drawing.Point(0, 0);
-            this.startUpScreenBox.Name = "startUpScreenBox";
-            this.startUpScreenBox.Size = new System.Drawing.Size(1400, 900);
-            this.startUpScreenBox.TabIndex = 6;
-            this.startUpScreenBox.TabStop = false;
+            this.foregroundPictureBoxRight.BackColor = System.Drawing.Color.Transparent;
+            this.foregroundPictureBoxRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.foregroundPictureBoxRight.Image = global::SummativeProject.Properties.Resources.ForegroundRightSide;
+            this.foregroundPictureBoxRight.Location = new System.Drawing.Point(978, 0);
+            this.foregroundPictureBoxRight.Name = "foregroundPictureBoxRight";
+            this.foregroundPictureBoxRight.Size = new System.Drawing.Size(422, 900);
+            this.foregroundPictureBoxRight.TabIndex = 9;
+            this.foregroundPictureBoxRight.TabStop = false;
             // 
             // bottomHeartBoxImage
             // 
             this.bottomHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
             this.bottomHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
             this.bottomHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bottomHeartBoxImage.Location = new System.Drawing.Point(1116, 561);
+            this.bottomHeartBoxImage.Location = new System.Drawing.Point(135, 553);
             this.bottomHeartBoxImage.Name = "bottomHeartBoxImage";
             this.bottomHeartBoxImage.Size = new System.Drawing.Size(263, 177);
             this.bottomHeartBoxImage.TabIndex = 5;
@@ -97,7 +99,7 @@
             this.middleHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
             this.middleHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
             this.middleHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.middleHeartBoxImage.Location = new System.Drawing.Point(1116, 349);
+            this.middleHeartBoxImage.Location = new System.Drawing.Point(135, 341);
             this.middleHeartBoxImage.Name = "middleHeartBoxImage";
             this.middleHeartBoxImage.Size = new System.Drawing.Size(263, 177);
             this.middleHeartBoxImage.TabIndex = 4;
@@ -108,7 +110,7 @@
             this.topHeartBoxImage.BackColor = System.Drawing.Color.Transparent;
             this.topHeartBoxImage.BackgroundImage = global::SummativeProject.Properties.Resources.HasHeart;
             this.topHeartBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.topHeartBoxImage.Location = new System.Drawing.Point(1116, 136);
+            this.topHeartBoxImage.Location = new System.Drawing.Point(135, 128);
             this.topHeartBoxImage.Name = "topHeartBoxImage";
             this.topHeartBoxImage.Size = new System.Drawing.Size(263, 177);
             this.topHeartBoxImage.TabIndex = 3;
@@ -125,16 +127,16 @@
             this.foregroundPictureBox.TabIndex = 2;
             this.foregroundPictureBox.TabStop = false;
             // 
-            // deathScreenBox
+            // startUpScreenBox
             // 
-            this.deathScreenBox.BackColor = System.Drawing.Color.Transparent;
-            this.deathScreenBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.deathScreenBox.Image = global::SummativeProject.Properties.Resources.LoseScreen;
-            this.deathScreenBox.Location = new System.Drawing.Point(0, 0);
-            this.deathScreenBox.Name = "deathScreenBox";
-            this.deathScreenBox.Size = new System.Drawing.Size(1400, 900);
-            this.deathScreenBox.TabIndex = 7;
-            this.deathScreenBox.TabStop = false;
+            this.startUpScreenBox.BackColor = System.Drawing.Color.Transparent;
+            this.startUpScreenBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.startUpScreenBox.Image = global::SummativeProject.Properties.Resources.StartUpScreen;
+            this.startUpScreenBox.Location = new System.Drawing.Point(0, 0);
+            this.startUpScreenBox.Name = "startUpScreenBox";
+            this.startUpScreenBox.Size = new System.Drawing.Size(1400, 900);
+            this.startUpScreenBox.TabIndex = 6;
+            this.startUpScreenBox.TabStop = false;
             // 
             // winScreenBox
             // 
@@ -147,13 +149,23 @@
             this.winScreenBox.TabIndex = 8;
             this.winScreenBox.TabStop = false;
             // 
+            // deathScreenBox
+            // 
+            this.deathScreenBox.BackColor = System.Drawing.Color.Transparent;
+            this.deathScreenBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.deathScreenBox.Image = global::SummativeProject.Properties.Resources.LoseScreen;
+            this.deathScreenBox.Location = new System.Drawing.Point(0, 0);
+            this.deathScreenBox.Name = "deathScreenBox";
+            this.deathScreenBox.Size = new System.Drawing.Size(1400, 900);
+            this.deathScreenBox.TabIndex = 7;
+            this.deathScreenBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 900);
-            this.Controls.Add(this.winScreenBox);
-            this.Controls.Add(this.deathScreenBox);
+            this.Controls.Add(this.foregroundPictureBoxRight);
             this.Controls.Add(this.bottomHeartBoxImage);
             this.Controls.Add(this.middleHeartBoxImage);
             this.Controls.Add(this.topHeartBoxImage);
@@ -161,6 +173,8 @@
             this.Controls.Add(this.cooldownTimerLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startUpScreenBox);
+            this.Controls.Add(this.winScreenBox);
+            this.Controls.Add(this.deathScreenBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -170,13 +184,14 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.startUpScreenBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBoxRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomHeartBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleHeartBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topHeartBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foregroundPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deathScreenBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startUpScreenBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.winScreenBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deathScreenBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,6 +209,7 @@
         private System.Windows.Forms.PictureBox startUpScreenBox;
         private System.Windows.Forms.PictureBox deathScreenBox;
         private System.Windows.Forms.PictureBox winScreenBox;
+        private System.Windows.Forms.PictureBox foregroundPictureBoxRight;
     }
 }
 

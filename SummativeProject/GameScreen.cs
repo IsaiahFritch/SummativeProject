@@ -35,7 +35,7 @@ namespace SummativeProject
         int dodgeCooldown = 0;
         int immunityCooldown = 10;
         int playerProjectileSizeTemp = 0;
-        int ronaldHealth = 2000;
+        static public int ronaldHealth = 2000;
         int ronaldPosition = 0;
         string ronaldMovePattern = "stride";
         int ronaldMovePatternSwitch = 1;
@@ -122,9 +122,7 @@ namespace SummativeProject
             playerSpeed = 5;
             dodgeCooldown = 0;
             immunityCooldown = 10;
-            playerHealth = 3;
             playerProjectileSizeTemp = 0;
-            ronaldHealth = 2000;
             ronaldPosition = 0;
             ronaldMovePattern = "stride";
             ronaldMovePatternSwitch = 1;
@@ -1106,42 +1104,43 @@ namespace SummativeProject
             {
                 if (playerProjectilesLifespan[i] < 20)
                 {
-                    //e.Graphics.FillRectangle(darkredBrush, playerProjectiles[i]);
-                    e.Graphics.DrawImage(redAshFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(darkredBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(redAshFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
                 else if (playerProjectilesLifespan[i] < 30)
                 {
-                    //e.Graphics.FillRectangle(redBrush, playerProjectiles[i]);
-                    e.Graphics.DrawImage(redFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(redBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(redFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
                 else if (playerProjectilesLifespan[i] < 40)
                 {
-                    //e.Graphics.FillRectangle(orangeredBrush, playerProjectiles[i]);
-                    e.Graphics.DrawImage(orangeRedFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(orangeredBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(orangeRedFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
                 else if (playerProjectilesLifespan[i] < 45)
                 {
-                    //e.Graphics.FillRectangle(orangeBrush, playerProjectiles[i]);
-                    e.Graphics.DrawImage(orangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(orangeBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(orangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
                 else if (playerProjectilesLifespan[i] < 62)
                 {
-                    //e.Graphics.FillRectangle(goldBrush, playerProjectiles[i]);
-                    e.Graphics.DrawImage(yellowOrangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(goldBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(yellowOrangeFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
                 else if (playerProjectilesLifespan[i] < 81)
                 {
-                    e.Graphics.DrawImage(yellowFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
+                    e.Graphics.FillRectangle(goldBrush, playerProjectiles[i]);
+                    //e.Graphics.DrawImage(yellowFireImage, playerProjectiles[i].X, playerProjectiles[i].Y, playerProjectileSize[i] + 20, playerProjectileSize[i] + 20);
                 }
             }
-
-            //cooldownTimerLabel.Text += $"\n{playerHealth}";
 
             //player
             e.Graphics.FillEllipse(blueBrush, player);
 
             //Uncle Ron
             e.Graphics.FillRectangle(blueBrush, Ronald);
+
+            cooldownTimerLabel.Text = $"{ronaldHealth}";
         }
 
         public void SetOneCaseOne()

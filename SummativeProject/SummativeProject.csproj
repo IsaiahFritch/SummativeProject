@@ -137,5 +137,8 @@
   <ItemGroup>
     <None Include="Resources\LoseScreen.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundRightSide.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
